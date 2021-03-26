@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.5</title>
+</head>
+<body>
+<script type="text/javascript">
+/* Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
+*/
+
+	'use strict';
+
+	function getResult(a, b) {
+		let summ_ = a + b;
+		let diff_ = a - b
+		let div_ = a / b
+		let mult_ = a * b
+		return `Сумма чисел ${a} и ${b} равна: ${summ_}\nРазница чисел ${a} и ${b} равна: ${diff_}\nДеление чисел ${a} и ${b} равно: ${div_}\nПроизведение чисел ${a} и ${b} равно: ${mult_}\n` 
+}
+
+	let a = parseInt(prompt('Enter the first number: '));
+	let b = parseInt(prompt('Enter the second number: '));
+	alert(getResult(a, b))
+</script>
+</body>
+</html>

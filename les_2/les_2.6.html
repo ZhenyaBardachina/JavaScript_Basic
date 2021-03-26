@@ -1,0 +1,39 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>2.6</title>
+</head>
+<body>
+	<script type="text/javascript">
+	/** Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 5) и вернуть полученное значение (использовать switch). 
+	*/
+		'use strict';
+
+
+		function mathOperation(arg1, arg2, operation) {
+			switch (operation) {
+				case '+':
+					return arg1 + arg2;
+				case '-':
+					return arg1 - arg2;
+				case '*':
+					return arg1 * arg2;
+				case '/':
+					return arg1 / arg2;
+				default:
+					'Check the correctness of the entered data'
+			}
+		}
+
+
+		let a = parseInt(prompt('Enter the first number: '));
+		let b = parseInt(prompt('Enter the second number: '));
+		let operation = prompt('Enter the sign operation (+, -, *, /) ');
+		alert(mathOperation(a, b, operation))
+
+
+	</script>
+</body>
+</html>

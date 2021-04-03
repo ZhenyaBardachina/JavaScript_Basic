@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>4.1.1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		
+		const MINNUM = 0;
+		const MAXNUM = 999;
+
+	function getObj(number) {
+		if (number > MAXNUM || number < MINNUM) {
+			number = {};
+			console.log('Invalid value entered');
+			return number;
+		} else {
+			// Вычисление сотен
+			function getHundred(number) {
+				return Math.floor(number / 100);
+			};
+
+
+			let hundred = getHundred(number);
+
+
+			// Вычисление десятков
+			function getDozens(number) {
+				return Math.floor(number / 10 % 10);
+			};
+
+
+			let dozen = getDozens(number);
+
+
+			// Вычисление единиц
+			function getUnits(number) {
+				return number % 10;
+			};
+
+
+			let unit = getUnits(number);
+
+
+			// Создаю объект из введённого числа
+			var userNumber = {
+				hundreds: `${hundred}`,
+				dozens: `${dozen}`,
+				units: `${unit}`,
+			};
+
+			console.log(`Your number is ` + number);
+			return userNumber;
+		};
+	};
+
+
+
+	let number = prompt('Enter the three-digit number: ');
+
+	console.log(getObj(number));
+
+	</script>
+	
+</body>
+</html>

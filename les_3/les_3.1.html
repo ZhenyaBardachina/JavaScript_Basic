@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3.1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+/** С помощью цикла while вывести все простые числа в промежутке от 0 до 100 */
+
+	let START = 2; // Нижняя граница
+	const FINISH = 100; // Верхняя граница
+	let sieve = [];
+
+
+	while (START <= FINISH) {
+		let i = 2;
+		let res = 2;
+
+		while (START % i !== 0) {
+			i++;
+			res++;
+		} if (res == START) {
+			sieve.push(res);
+		}
+		START++;
+	}
+    
+	console.log(sieve);
+
+	</script>
+</body>
+</html>

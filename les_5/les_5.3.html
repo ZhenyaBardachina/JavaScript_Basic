@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cart</title>
+	<style type="text/css">
+		goods {
+			border: 1px solid #fff;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="goods">Корзина: </div>
+	<script type="text/javascript">
+	'use script';
+	// Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре. Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:
+	//  Пустая корзина должна выводить строку «Корзина пуста»;
+	//  Наполненная должна выводить «В корзине: n товаров на сумму m рублей».
+
+// Корзина не пуста
+
+		const userBasket = {
+		goods: [
+			{
+			name: 'Bananas', 
+			price: 200, 
+			quantity: 2
+			},
+		{
+			name: 'Pears', 
+			price: 250, 
+			quantity: 4
+			},
+			],
+		countBasketPrice() {
+			return this.goods.reduce((totalPrice, cartItem) => totalPrice + cartItem.price * cartItem.quantity, 0)
+		 }
+		};
+
+
+
+// Корзина пуста
+
+		// const userBasket = {
+		// goods: [],
+		// countBasketPrice() {
+		// 	return this.goods.reduce((totalPrice, cartItem) => totalPrice + cartItem.price * cartItem.quantity, 0)
+		//  }
+		// };
+
+
+
+		var userCart = document.querySelector('#goods');
+
+
+		if (userBasket.goods.length == 0) {
+				alert('Корзина пуста');
+				userCart.textContent += ' нет товаров.';
+			} else {
+				userCart.textContent = '';
+				userCart.textContent += `Товаров в корзине: ${userBasket.goods.length} на сумму: ${userBasket.countBasketPrice()} рублей `;
+
+				for (const prop in userBasket) {
+					userCart.insertAdjacentHTML('beforeend', userBasket.prop = userBasket[prop]);
+					}
+
+					// const newDiv = document.createElement('div');
+					// const i = document.createElement('i');
+					// i.textContent = key;
+					// newDiv.appendChild(i);
+
+					// document.userCart.i(newDiv);					
+				
+			}
+
+
+	</script>
+</body>
+</html>

@@ -6,61 +6,56 @@
 	<title>5.1_Chess</title>
 		<style type="text/css">
 			
-		    table {
+
+			table {
 		      margin: auto;
 		      border-collapse: collapse;
 		    }
 		    tr {
-		      width: 50px;
-		      height: 50px;
+		      border: 1px solid #888888;
 		    }
 		    td {
 		      border: 1px solid #888888;
 		      width: 50px;
 		      height: 50px;
-		      background-color: #EEEEEE;
-		      text-align: center;
-		      font-size: 2em;
 		    }
-		    .white{
-		    	background-color: #fff;
-		    	} 
-		    .black {
-		    	background-color: #000;
-		    }
-  		</style>
+		</style>
 
 </head>
 <body>
 
-	<div id="chess"></div>
+	<div class="chess"></div>
 	<script type="text/javascript">
 		'use script';
 // Создать функцию, генерирующую шахматную доску. При этом можно использовать любые html-теги по своему желанию. Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки. Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.
 
 	const WidthDesc = 8;
-	const HeightDesc = 8;
-	var sqrt;
-	var color = true;
+	const HeightDesc = 8;  
+	let count;
 
 
-	const tableChess = document.querySelector('#chess');
+	const tableChess = document.querySelector('.chess');
 
 	for (let i = 0; i < WidthDesc; i++) {
+			const trTag = document.createElement('tr');/* 
+			      let num = document.createElement('num');
+			      num.textContent(i);
+			      trTag.appendChild(num); */
+			tableChess.appendChild(trTag);
+      
+
 		for (let j = 0; j < HeightDesc; j++) {
-			sqrt = document.createElement('div');
+			const tdTag = document.createElement('td');
+			tableChess.appendChild(tdTag);
+      			count++;
 
-			if (color) {
-				sqrt.className = 'black';
-			} else {
-				sqrt.className = 'white';
-			}
-
-			document.tableChess.appendChild(sqrt);
-			color = !color;
+			if (count % 2 == 0) {
+		      	tdTag.style.backgroundColor = 'black';
+		    } else {
+		      	tdTag.style.backgroundColor = 'white';
+		    }
 		}
 	}
-
 
 
 	</script>

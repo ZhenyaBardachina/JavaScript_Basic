@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>4.2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+
+	let userBasket1 = {
+		1: {
+			name: 'Apples', 
+			price: 100, 
+			quantity: 3,
+			},
+		2: {
+			name: 'Oranges', 
+			price: 150, 
+			quantity: 2,
+			},
+		3: {
+			name: 'Pineapples', 
+			price: 370, 
+			quantity: 1,
+			},
+		};
+
+		let userBasket2 = {
+		1: {
+			name: 'Bananas', 
+			price: 200, 
+			quantity: 2,
+			},
+		2: {
+			name: 'Pears', 
+			price: 250, 
+			quantity: 4,
+			},
+		3: {
+			name: 'Coconat', 
+			price: 400, 
+			quantity: 1,
+			},
+		4: {
+			name: 'Apples',
+			price: 100,
+			quantity: 2,
+			},
+		};
+
+
+		console.log(userBasket1);
+		console.log(userBasket2);
+
+		// Либо списком
+
+		let userBasket3 = {
+			1: ['Apples', 100, 3],
+			2: ['Oranges', 150, 2],
+			3: ['Pineapples', 370, 1],
+		}
+
+		let userBasket4 = {
+			1: ['Bananas', 200, 2],
+			2: ['Pears', 250, 4],
+			3: ['Coconat', 400, 1],
+			4: ['Apples', 100, 2],
+		};
+
+
+		console.log(userBasket3);
+		console.log(userBasket4);
+
+		// Не работает, не разобралась
+        function countBasketPrice(basket) {
+            var sum = 0;
+            for (var key in basket) {
+                sum += basket[key[1]] * basket[key[2]];
+            }
+            return sum;
+        };
+
+		console.log(countBasketPrice(userBasket1));
+
+	</script>
+	
+</body>
+</html>

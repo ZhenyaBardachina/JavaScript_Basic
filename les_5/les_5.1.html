@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>5.1_Chess</title>
+		<style type="text/css">
+			
+		    table {
+		      margin: auto;
+		      border-collapse: collapse;
+		    }
+		    tr {
+		      width: 50px;
+		      height: 50px;
+		    }
+		    td {
+		      border: 1px solid #888888;
+		      width: 50px;
+		      height: 50px;
+		      background-color: #EEEEEE;
+		      text-align: center;
+		      font-size: 2em;
+		    }
+		    .white{
+		    	background-color: #fff;
+		    	} 
+		    .black {
+		    	background-color: #000;
+		    }
+  		</style>
+
+</head>
+<body>
+
+	<div id="chess"></div>
+	<script type="text/javascript">
+		'use script';
+// Создать функцию, генерирующую шахматную доску. При этом можно использовать любые html-теги по своему желанию. Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки. Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.
+
+	const WidthDesc = 8;
+	const HeightDesc = 8;
+	var sqrt;
+	var color = true;
+
+
+	const tableChess = document.querySelector('#chess');
+
+	for (let i = 0; i < WidthDesc; i++) {
+		for (let j = 0; j < HeightDesc; j++) {
+			sqrt = document.createElement('div');
+
+			if (color) {
+				sqrt.className = 'black';
+			} else {
+				sqrt.className = 'white';
+			}
+
+			document.tableChess.appendChild(sqrt);
+			color = !color;
+		}
+	}
+
+
+
+	</script>
+</body>
+</html>

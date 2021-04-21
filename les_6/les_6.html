@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>6</title>
+	<style type="text/css">
+        .good, .content {
+            border: 1px solid #000;
+            margin-bottom: 5px;
+            background: #ccc;
+        }
+        .content {
+	    	background: #AFEEEE;	
+        }
+	</style>
+</head>
+<body>
+
+	<div class="content">GOODS LIST</div>
+
+	<div class="cart-list"></div>
+<button class="cart-btn">Очистить корзину</button>
+
+	<script type="text/javascript">
+		'use strict';
+
+/** 1. Доработать модуль корзины.
+a. Добавлять в объект корзины выбранные товары по клику на кнопке «Купить» без перезагрузки страницы
+b. Привязать к событию покупки товара пересчет корзины и обновление ее внешнего вида */
+
+const cartItem = {
+    render(good) {
+        return `<div class="good">
+                    <div><b>Наименование</b>: ${good.product_name}</div>
+                    <div><b>Цена за шт.</b>: ${good.price}</div>
+                    <div><b>Количество</b>: ${good.quantity}</div>
+                    <div><b>Стоимость</b>: ${good.quantity * good.price}</div>
+                </div>`;
+    }
+}
+
+
+const cart = {
+    cartListBlock: null,
+    clearCartButton: null,
+    cartItem,
+    goods: [
+	    {
+	        name: 'Кокос', 
+	        price: 400, 
+	        quantity: 1,
+	        },
+	    {
+	        name: 'Банан', 
+	        price: 200, 
+	        quantity: 2
+	        },
+	    {
+	        name: 'Груша', 
+	        price: 250, 
+	        quantity: 4
+	        },
+	    {
+	        name: 'Яблоко',
+	        price: 100,
+	        quantity: 2,
+        },
+    ],
+ // Вставка значений объекта на страницу HTML
+showContent() { 
+    return `<div><b>Наименование</b>: ${this.name}</div>
+            <div><b>Цена за 1шт.</b>: ${this.price}</div>
+            <button>Добавить в корзину</button>`;
+},
+insert() {
+		for (let i = 0; i < this.goods.length; i++) {
+			let content = document.querySelector('.content');	
+		let paragraph = document.createElement('p');
+	 	content.appendChild(paragraph);
+	 	paragraph.innerHTML = cart.showContent();	
+		}
+},
+init() {
+    this.cartListBlock = document.querySelector('.cart-list');
+    this.clearCartButton = document.querySelector('.cart-btn');
+    this.clearCartButton.addEventListener('click', () => this.clearCart());
+
+    this.render();
+},
+render() {
+    if (this.goods.length) {
+        this.goods.forEach(good => {
+            this.cartListBlock.insertAdjacentHTML('beforeend', this.cartItem.render(good));
+        });
+        this.cartListBlock.insertAdjacentHTML('beforeend', `В корзине ${this.goods.length} позиций(а) стоимостью ${this.getCartPrice()}`);
+    } else {
+        this.cartListBlock.textContent = 'Корзина пуста';
+    }
+},
+getCartPrice() {
+    return this.goods.reduce(function (price, good) {
+        return price + good.price * good.quantity;
+    }, 0);
+},
+clearCart() {
+    this.goods = [];
+    this.render();
+},
+};
+
+
+cart.init();
+cart.insert();
+
+
+
+	</script>
+	
+</body>
+</html>
